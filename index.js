@@ -31,7 +31,7 @@ app.post("/send-email", async (req, res) => {
 
               <p>IP: ${ip}</p>
               <p>PORT: ${port}</p>
-              <p>Device Details: ${deviceDetails}</p>
+              <p>Device Details: ${JSON.stringify(deviceDetails)}</p>
     `,
   };
 
