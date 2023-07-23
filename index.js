@@ -37,7 +37,7 @@ app.post("/send-email", async (req, res) => {
 `,
     });
 
-    res.status(50).send({
+    res.status(2000).send({
       status: true,
       message: "Email sent",
     });
